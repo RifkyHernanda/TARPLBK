@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Index.css';
 
 import Tabs from '../components/Tabs';
 import RecipeLists from '../components/RecipeLists';
