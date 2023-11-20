@@ -1,0 +1,27 @@
+/* RecipeLists.css */
+
+/* ... (style yang sudah ada) */
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Untuk memberikan jarak antara kolom */
+}
+
+/* Mengatur properti flex untuk membuat tiga kolom dan menambahkan margin */
+.flexItem {
+  flex: 0 0 calc(33.33% - 1rem); /* Diperbarui menjadi tiga kolom */
+  margin-bottom: 1.5rem; /* Menambah jarak bawah antar item */
+}
+
+.img-wrapper {
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
