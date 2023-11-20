@@ -30,10 +30,6 @@ function Tabs(props) {
       icon: <MdOutlineIcecream />,
       id: '7c5a5ced83523b4dc49adbc78471cc38',
     },
-    // {
-    //   name: 'About',
-    //   id: 'about', // Tambahkan id untuk About
-    // },
   ]);
 
   const handleClick = async (name, id) => {
@@ -74,7 +70,6 @@ function Tabs(props) {
       setTabData(response);
       props.setLoader(false);
     });
-
   }, [active, props.selectedCategory, props.showRecipeBanner, props.showAbout]);
 
   return (
@@ -82,11 +77,7 @@ function Tabs(props) {
       <h1 className="recipeHeading">What do you want to eat?!</h1>
       <div className="tabs" style={{ marginBottom: '20px' }}>
         {navItems.map((item, index) => (
-          <button
-            onClick={() => handleClick(item.name, item.id)}
-            key={index}
-            className={`tablist ${active === item.name ? 'active' : ''}`}
-          >
+          <button onClick={() => handleClick(item.name, item.id)} key={index} className={`tablist ${active === item.name ? 'active' : ''}`}>
             {item.icon}
             <span>{item.name}</span>
           </button>
