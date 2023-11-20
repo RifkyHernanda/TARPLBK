@@ -1,7 +1,3 @@
-/* config.css */
-
-/* helpers/align.css */
-
 .align {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -18,8 +14,6 @@
   justify-content: center;
 }
 
-/* helpers/grid.css */
-
 .grid {
   margin-left: auto;
   margin-right: auto;
@@ -27,8 +21,6 @@
   max-width: 20rem;
   width: 90%;
 }
-
-/* helpers/hidden.css */
 
 .hidden {
   border: 0;
@@ -40,8 +32,6 @@
   position: absolute;
   width: 1px;
 }
-
-/* helpers/icon.css */
 
 .icons {
   display: none;
@@ -67,8 +57,6 @@ a:focus,
 a:hover {
   text-decoration: underline;
 }
-
-/* modules/form.css */
 
 input {
   background-image: none;
@@ -110,8 +98,6 @@ input[type='submit'] {
   -ms-flex: 1;
   flex: 1;
 }
-
-/* modules/login.css */
 
 .login {
   color: #eee;
@@ -161,8 +147,6 @@ input[type='submit'] {
 .login input[type='submit']:hover {
   background-color: #1a1a1a;
 }
-
-/* modules/text.css */
 
 p {
   margin-bottom: 24px;
