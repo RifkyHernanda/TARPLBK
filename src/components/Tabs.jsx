@@ -1,14 +1,16 @@
-// Tabs.jsx
 import React, { useState, useEffect } from 'react';
 import { CiPizza } from 'react-icons/ci';
 import { GiNoodles, GiFruitBowl } from 'react-icons/gi';
 import { MdOutlineIcecream } from 'react-icons/md';
 import { fetchTabData } from '../service';
-import About from './About'; // Import komponen About
+import About from './About';
+import RecipeLists from './RecipeLists'; // Import RecipeLists
 
 function Tabs(props) {
   const [active, setActive] = useState('Pizza');
   const [tabData, setTabData] = useState('');
+  const [showAbout, setShowAbout] = useState(false);
+
   const [navItems] = useState([
     {
       name: 'Pizza',
@@ -30,6 +32,10 @@ function Tabs(props) {
       icon: <MdOutlineIcecream />,
       id: '7c5a5ced83523b4dc49adbc78471cc38',
     },
+    {
+      name: 'About',
+      id: 'about',
+    },
   ]);
 
   const handleClick = async (name, id) => {
@@ -37,9 +43,8 @@ function Tabs(props) {
     props.setLoader(true);
 
     if (id === 'about') {
-      // Tampilkan halaman About
+      setShowAbout(!showAbout);
       props.setLoader(false);
-      props.setShowAbout(true);
       return;
     }
 
@@ -50,6 +55,7 @@ function Tabs(props) {
       props.setRecipeData(response);
       props.setSelectedCategory(name);
       props.setShowRecipeBanner(false);
+      setShowAbout(false);
     } catch (error) {
       console.error('Error fetching tab data:', error);
       props.setLoader(false);
@@ -59,8 +65,7 @@ function Tabs(props) {
   useEffect(() => {
     props.setLoader(true);
 
-    if (props.showAbout) {
-      // Tampilkan halaman About
+    if (showAbout) {
       props.setLoader(false);
       return;
     }
@@ -70,7 +75,7 @@ function Tabs(props) {
       setTabData(response);
       props.setLoader(false);
     });
-  }, [active, props.selectedCategory, props.showRecipeBanner, props.showAbout]);
+  }, [active, showAbout, props.selectedCategory, props.showRecipeBanner]);
 
   return (
     <div className="container">
@@ -83,6 +88,11 @@ function Tabs(props) {
           </button>
         ))}
       </div>
+
+      {showAbout && <About />}
+
+      {/* Menyertakan RecipeLists dengan prop showFlexBox */}
+      {!showAbout && <RecipeLists {...props} showFlexBox={navItems.find((item) => item.name === active)} />}
     </div>
   );
 }
